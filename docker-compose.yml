@@ -11,14 +11,14 @@ services:
         links:
             - php
         networks:
-            - wmnet
+            - maunet
 
     php:
         image: php:fpm
         volumes:
             - ./app:/app
         networks:
-            - wmnet
+            - maunet
         command:
             - /bin/sh
             - -c
@@ -39,11 +39,11 @@ services:
         environment:
             MYSQL_ROOT_USER: root
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: wm
+            MYSQL_DATABASE: mau
             MYSQL_USER: user1
             MYSQL_PASSWORD: user1
         networks:
-            - wmnet
+            - maunet
 
     phpmyadmin:
         depends_on:
@@ -55,7 +55,7 @@ services:
             PMA_HOST: db
             MYSQL_ROOT_PASSWORD: root
         networks:
-            - wmnet
+            - maunet
 
 networks:
-    wmnet:
+    maunet:
